@@ -25,6 +25,8 @@ def prepSparseMatrix(list_of_str):
 
 
 sparseMatrix, feature_names = prepSparseMatrix(tickets_items_list)
+
+# Transform matrix in value pairs
 svd = TruncatedSVD()
 
 for i in range(0, 5):
