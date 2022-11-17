@@ -1,6 +1,12 @@
 DAT901_PY_ENV/
-KaDo.csv
-KaDo.csv:Zone.Identifier
-all_carts.csv
-all_carts_encoded.csv
-items_list_for_ticket.txt
+.vscode/
+.ipynb_checkpoints/
+cart_clustering/KaDo.csv
+cart_clustering/KaDo.csv:Zone.Identifier
+cart_clustering/all_carts.csv
+cart_clustering/all_carts_encoded.csv
+cart_clustering/items_list_for_ticket.txt
+cart_clustering/models/kmeans/*
+cart_clustering/models/dbscan/*
+cart_clustering/models/spectral/*
+
