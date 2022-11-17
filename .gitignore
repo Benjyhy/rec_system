@@ -1,6 +1,7 @@
 DAT901_PY_ENV/
 .vscode/
 .ipynb_checkpoints/
+cart_clustering/.ipynb_checkpoints/
 cart_clustering/KaDo.csv
 cart_clustering/KaDo.csv:Zone.Identifier
 cart_clustering/all_carts.csv
