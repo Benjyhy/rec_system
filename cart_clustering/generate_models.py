@@ -7,6 +7,7 @@ from sklearn.cluster import DBSCAN
 from sklearn.cluster import SpectralClustering
 import pickle
 from sklearn.decomposition import TruncatedSVD
+import os
 
 # Define carts : a ticket contains one or more libelles
 carts = pd.read_csv("KaDo.csv", usecols=["TICKET_ID", "LIBELLE"])
@@ -24,7 +25,16 @@ def prepSparseMatrix(list_of_str):
     return sparseMatrix, cv.get_feature_names_out()
 
 
+# Get sparseMatrix
 sparseMatrix, feature_names = prepSparseMatrix(tickets_items_list)
+
+# Create necessary directories if needed
+necessary_paths = ["models/dbscan/", "models/kmeans/", "models/spectral/", "models/dd/"]
+for n_p in necessary_paths:
+    exists = os.path.exists(n_p)
+    if not exists:
+        os.makedirs(n_p)
+        print(f"{n_p} was created")
 
 # Transform matrix in value pairs
 svd = TruncatedSVD()
