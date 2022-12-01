@@ -27,9 +27,8 @@ def prepSparseMatrix(list_of_str):
 
 # Get sparseMatrix
 sparseMatrix, feature_names = prepSparseMatrix(tickets_items_list)
-
 # Create necessary directories if needed
-necessary_paths = ["models/dbscan/", "models/kmeans/", "models/spectral/", "models/dd/"]
+necessary_paths = ["models/dbscan/", "models/kmeans/", "models/spectral/"]
 for n_p in necessary_paths:
     exists = os.path.exists(n_p)
     if not exists:
@@ -37,9 +36,9 @@ for n_p in necessary_paths:
         print(f"{n_p} was created")
 
 # Transform matrix in value pairs
-svd = TruncatedSVD()
 
 for i in range(0, 5):
+    svd = TruncatedSVD()
     df_svd = svd.fit_transform(sparseMatrix[i * 10000 : (i + 1) * 10000])
 
     # Fitting Data on Model and saving it with pickle (kmeans)
@@ -60,3 +59,10 @@ for i in range(0, 5):
     )
     spectral.fit(df_svd)
     pickle.dump(spectral, open(f"models/spectral/{i}.pkl", "wb"))
+
+# Train KMeans on the wholedate
+svd = TruncatedSVD()
+df_svd = svd.fit_transform(sparseMatrix)
+kmeans = KMeans(n_clusters=8, init="k-means++", max_iter=300, n_init=10, random_state=0)
+kmeans.fit(df_svd)
+pickle.dump(kmeans, open(f"models/kmeans/main.pkl", "wb"))
