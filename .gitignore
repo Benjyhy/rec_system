@@ -11,3 +11,6 @@ cart_clustering/models/kmeans/*
 cart_clustering/models/dbscan/*
 cart_clustering/models/spectral/*
 tensorflow_recom_by_labels/*.csv
+KaDo.csv
+KMeans/all_purchases.csv
+KMeans/items_list_for_client.txt
