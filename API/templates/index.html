@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Recommendation System</title>
+{% endblock %}
+
+{% block body %}
+<section>
+    <h1>Welcome to Reco system&nbsp;!</h1>
+    <div class="select">
+        <p>Select a client id&nbsp;</p>
+        <input type="number" id="cli_id" value="0">
+        <p>Select your recommendation mode&nbsp;:</p>
+        <div>
+            <a href="" class="recommend kmeans">KMeans</a>
+            <a href="" class="recommend tfr">Tensforflow Recommenders</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    const btns = document.querySelectorAll(".recommend");
+    const input = document.getElementById("cli_id");
+    let cli_id = 0;
+    input.addEventListener("change", () => {
+        cli_id = input.value;
+        btns.forEach(btn => {
+            href = btn.classList.contains("kmeans") ? `/kmeans/${cli_id}` : `/tfr/${cli_id}`;
+            btn.setAttribute("href", href);
+        });
+    });
+
+</script>
+{% endblock %}

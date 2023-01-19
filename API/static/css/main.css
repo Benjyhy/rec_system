@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+section {
+    background: radial-gradient(rgb(39, 39, 39), rgb(20, 20, 20));
+    height: 100vh;
+    position: relative;
+}
+
+section>div {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+section input {
+    width: 3em;
+    align-self: center;
+    color: rgb(216, 10, 62);
+    font-size: 5em;
+    padding: .2em;
+    margin: .2em 0 1em 0;
+}
+
+h1 {
+    padding-top: 2em;
+    text-align: center;
+}
+
+.select {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.select p {
+    font-weight: bold;
+    text-align: center;
+}
+
+.select a {
+    background-color: rgb(216, 10, 62);
+    padding: 1em 2em;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 2em 1em;
+    transition: all ease-in .2s;
+}
+
+.select a:hover {
+    transform: translateY(-15%);
+    background: rgb(117, 48, 163);
+}
+
+.select div {
+    display: flex;
+    justify-content: center;
+}

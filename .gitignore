@@ -16,3 +16,5 @@ KMeans/all_purchases.csv
 KMeans/items_list_for_client.txt
 DBScan/models/*
 Spectral/models/*
+API/env/
+KMeans/kmeans_rec.json
