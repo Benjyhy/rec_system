@@ -8,7 +8,9 @@
 <section>
     <h1>See {{ model.name }} results</h1>
     <div>
-        {{ model.results }}
+        {% for result in model.results %}
+        <p>{{ result }}</p>
+        {% endfor %}
     </div>
 </section>
 {% endblock %}

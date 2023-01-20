@@ -1,8 +1,15 @@
-from flask import Flask, render_template, url_for, request, redirect
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+import json
+from flask import Flask, render_template
+import tensorflow as tf
+import numpy as np
+import tensorflow_recommenders as tfrs
 
 app = Flask(__name__)
+
+with open('kmeans_rec.json', 'r') as f:
+  kmeans_rec = json.load(f)
+
+tf_rec = tf.saved_model.load('retrieval__model__cli_id')
 
 class Model:
     def __init__(self, name, results):
@@ -18,12 +25,19 @@ def index():
 
 @app.route('/kmeans/<int:id>', methods=['GET'])
 def kmeans(id):
-    model = Model("kmeans", ["aaa", "bbb", "ccc"])
+    id = f"{id}"
+    results = np.array([v for k,v in kmeans_rec[id].items()]).flatten().tolist()
+    model = Model("kmeans", results)
     return render_template('recs.html', model = model)
 
 @app.route('/tfr/<int:id>', methods=['GET'])
 def tfr(id):
-    model = Model("tfr", ["eee", "fff", "ggg"])
+    encoding = 'utf-8'
+    scores, rec = tf_rec(np.array([int(id)]))
+    results = []
+    for i in rec[0][:5].numpy().tolist():
+        results.append(i.decode(encoding))
+    model = Model("tfr", results)
     return render_template('recs.html', model = model)
 
 if __name__ == '__main__':

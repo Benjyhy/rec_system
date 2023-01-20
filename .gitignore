@@ -17,4 +17,6 @@ KMeans/items_list_for_client.txt
 DBScan/models/*
 Spectral/models/*
 API/env/
+API/kmeans_rec.json
+API/retrieval__model__cli_id/
 KMeans/kmeans_rec.json
