@@ -28,8 +28,8 @@ Our first solution is **clients-libelles based clustering method**. We trained o
 We also provide a solution using **matrix factorization** by _Tensforflow Recommenders_, whether based on tickets-libelles relation or clients-libelles relation. Both of those solutions can be find respectively in:
 
 -   tickets_based_tensorflow_recommenders/
--   clients_based_tensorflow_recommenders/
-    In each folder, you can find a `create_tower_model_based_on_xx.ipynb` file. Its mission is to preprocess data, create the _Query Model_ et _Candidate Model_ required by _Tensorflow Recommenders_ in order to build the final _Tower Model_. Finally, we save the recommendations as vectors using the Scann library.
+-   clients*based_tensorflow_recommenders/
+    In each folder, you can find a `create_tower_model_based_on_xx.ipynb` file. Its mission is to preprocess data, create the \_Query Model* et _Candidate Model_ required by _Tensorflow Recommenders_ in order to build the final _Tower Model_. Finally, we save the recommendations as vectors using the Scann library.
     You will also find `load_model_xx.ipynb` file which demonstrates our the recommendations should be served in production.
     You may also need to download these models from our google drive since we could not push them to this repository.
     The links are in the notebooks.
